@@ -1,0 +1,19 @@
+backend:
+  name: git-gateway
+  branch: main # 确认这是你的主分支名
+
+media_folder: "images" # 图片存放目录
+public_folder: "/images"
+
+collections:
+  - name: "blog"
+    label: "文章"
+    folder: "posts" # 文章存放目录
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "标题", name: "title", widget: "string"}
+      - {label: "发布日期", name: "date", widget: "datetime"}
+      - {label: "封面图", name: "thumbnail", widget: "image"}
+      - {label: "分类", name: "category", widget: "select", options: ["科技", "美妆", "生活"]}
+      - {label: "正文", name: "body", widget: "markdown"}
