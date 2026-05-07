@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>全域探索 | 综合生活志</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .glass-nav { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(10px); }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900">
+
+    <nav class="glass-nav sticky top-0 z-50 border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 h-16 flex justify-between items-center">
+            <div class="text-2xl font-black tracking-tight text-indigo-600">UNIVERSE<span class="text-slate-400">LOG</span></div>
+            <div class="hidden md:flex space-x-6 text-sm font-semibold">
+                <a href="#" class="text-indigo-600">首页</a>
+                <a href="#" class="hover:text-indigo-600 transition">科技评测</a>
+                <a href="#" class="hover:text-indigo-600 transition">美妆护理</a>
+                <a href="#" class="hover:text-indigo-600 transition">家居生活</a>
+            </div>
+            <div class="flex items-center space-x-4">
+                <button class="text-sm font-medium border border-slate-300 px-4 py-1.5 rounded-lg hover:bg-slate-50">登录</button>
+            </div>
+        </div>
+    </nav>
+
+    <header class="max-w-7xl mx-auto px-4 py-10">
+        <div class="relative rounded-3xl overflow-hidden aspect-[21/9] md:aspect-[3/1] bg-slate-900">
+            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=2000" class="absolute inset-0 w-full h-full object-cover opacity-60" alt="Hero">
+            <div class="absolute inset-0 flex flex-col justify-center p-8 md:p-16">
+                <span class="text-indigo-400 font-bold tracking-widest text-sm mb-4"># 2026 趋势报告</span>
+                <h1 class="text-white text-3xl md:text-5xl font-bold max-w-2xl leading-tight">全品类进化：从智能硬件到护肤美学的跨界融合</h1>
+                <p class="text-slate-300 mt-4 max-w-lg hidden md:block">我们打破行业的藩篱，为你呈现最真实的消费决策参考。</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 py-12">
+        <div class="flex flex-col md:flex-row justify-between items-end mb-10 gap-4">
+            <div>
+                <h2 class="text-3xl font-bold">深度内容</h2>
+                <p class="text-slate-500 mt-2">Latest Insights & Reviews</p>
+            </div>
+            <div class="flex bg-white p-1 rounded-xl shadow-sm border border-slate-200 text-sm font-medium">
+                <button class="px-6 py-2 bg-indigo-600 text-white rounded-lg">全部</button>
+                <button class="px-6 py-2 hover:bg-slate-50 rounded-lg transition">科技</button>
+                <button class="px-6 py-2 hover:bg-slate-50 rounded-lg transition">生活</button>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            <article class="group">
+                <div class="relative overflow-hidden rounded-2xl mb-5 shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1555421689-491a97ff2040?auto=format&fit=crop&q=80&w=800" class="w-full h-64 object-cover group-hover:scale-110 transition duration-700">
+                    <div class="absolute top-4 left-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider">科技评测</div>
+                </div>
+                <h3 class="text-xl font-bold group-hover:text-indigo-600 transition leading-snug">为什么下一代折叠屏手机将彻底取代你的平板电脑？</h3>
+                <p class="text-slate-500 mt-3 text-sm line-clamp-2 italic">“这种改变不仅仅是屏幕的变大，更是生产力逻辑的重构。”</p>
+                <div class="flex items-center mt-6 space-x-3">
+                    <div class="w-8 h-8 rounded-full bg-slate-300"></div>
+                    <div class="text-xs">
+                        <p class="font-bold">Admin</p>
+                        <p class="text-slate-400">2026年5月7日</p>
+                    </div>
+                </div>
+            </article>
+
+            <article class="group">
+                <div class="relative overflow-hidden rounded-2xl mb-5 shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&q=80&w=800" class="w-full h-64 object-cover group-hover:scale-110 transition duration-700">
+                    <div class="absolute top-4 left-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider">美妆护理</div>
+                </div>
+                <h3 class="text-xl font-bold group-hover:text-indigo-600 transition leading-snug">从成分表看真相：为什么昂贵的面霜不一定适合你？</h3>
+                <p class="text-slate-500 mt-3 text-sm line-clamp-2">拒绝营销陷阱，我们深入实验室解析了10款热门面霜的核心活性物质...</p>
+                <div class="flex items-center mt-6 space-x-3">
+                    <div class="w-8 h-8 rounded-full bg-slate-300"></div>
+                    <div class="text-xs">
+                        <p class="font-bold">Editor-K</p>
+                        <p class="text-slate-400">2026年5月6日</p>
+                    </div>
+                </div>
+            </article>
+
+            <article class="group">
+                <div class="relative overflow-hidden rounded-2xl mb-5 shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1583847268964-b28dc2f51ac9?auto=format&fit=crop&q=80&w=800" class="w-full h-64 object-cover group-hover:scale-110 transition duration-700">
+                    <div class="absolute top-4 left-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider">家居生活</div>
+                </div>
+                <h3 class="text-xl font-bold group-hover:text-indigo-600 transition leading-snug">20平米单身公寓的收纳哲学：小空间大生活的秘诀</h3>
+                <p class="text-slate-500 mt-3 text-sm line-clamp-2">收纳不只是藏起杂物，更是对生活动线的重新梳理和对自我的诚实面对。</p>
+                <div class="flex items-center mt-6 space-x-3">
+                    <div class="w-8 h-8 rounded-full bg-slate-300"></div>
+                    <div class="text-xs">
+                        <p class="font-bold">HomeExpert</p>
+                        <p class="text-slate-400">2026年5月5日</p>
+                    </div>
+                </div>
+            </article>
+        </div>
+
+        <section class="mt-24 bg-indigo-600 rounded-[32px] p-10 md:p-20 text-center text-white">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">获取每周好物推荐</h2>
+            <p class="text-indigo-100 mb-10 max-w-md mx-auto">加入我们的邮件列表，第一时间获取深度评测报告和独家消费优惠。</p>
+            <div class="max-w-md mx-auto flex flex-col md:flex-row gap-4">
+                <input type="email" placeholder="你的邮箱地址" class="flex-1 px-6 py-4 rounded-2xl text-slate-900 focus:outline-none">
+                <button class="bg-slate-900 text-white px-8 py-4 rounded-2xl font-bold hover:bg-slate-800 transition">立即订阅</button>
+            </div>
+        </section>
+    </main>
+
+    <footer class="border-t border-slate-200 pt-16 pb-8 mt-12 bg-white text-center">
+        <p class="text-slate-400 text-sm">© 2026 UNIVERSELOG. 连接你的全维度生活方式.</p>
+    </footer>
+
+</body>
+</html>
