@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: lipengqing96/my-blog  # 这里一定要改成你的真实信息
+  repo: lipengqing96/my-blog
   branch: main
 
 media_folder: "images"
@@ -14,5 +14,5 @@ collections:
     slug: "{{slug}}"
     fields:
       - {label: "标题", name: "title", widget: "string"}
-      - {label: "发布日期", name: "date", widget: "datetime"}
+      - {label: "日期", name: "date", widget: "datetime"}
       - {label: "正文", name: "body", widget: "markdown"}
