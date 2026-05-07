@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: 你的GitHub用户名/my-blog  # 这里一定要改成你的真实信息
+  repo: lipengqing96/my-blog  # 这里一定要改成你的真实信息
   branch: main
 
 media_folder: "images"
