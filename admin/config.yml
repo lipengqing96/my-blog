@@ -1,7 +1,9 @@
 backend:
   name: github
-  repo: lipengqing96/my-blog
+  repo: 你的GitHub用户名/my-blog
   branch: main
+  base_url: https://api.netlify.com
+  auth_endpoint: /auth
 
 media_folder: "images"
 public_folder: "/images"
