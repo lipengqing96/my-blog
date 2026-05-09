@@ -1,6 +1,6 @@
 ---
 title: "The 2026 Escape: Why AlUla is the New Frontier for Discerning Travelers"
-thumbnail: "https://images.unsplash.com/photo-1584135348203-df97652750e3?auto=format&fit=crop&q=80&w=1000"
+thumbnail: "https://images.unsplash.com/photo-1695642456006-593006733221?q=80&w=1000&auto=format&fit=crop"
 category: "Luxury Travel"
 aff_link: "https://wa.me/8615556928232"
 ---
