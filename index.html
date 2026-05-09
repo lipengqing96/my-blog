@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LIPENGQING | ARCHIVE</title>
+    <title>GLOBAL PICKS | ARCHIVE</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <style>
@@ -12,7 +12,6 @@
         body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #fcfcfc; color: #1a1a1a; margin: 0; }
         .serif { font-family: 'Playfair Display', serif; }
 
-        /* 背景保持你喜欢的艺术感 */
         .ambient-bg {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background-image: url('https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85?auto=format&fit=crop&q=80&w=2000');
@@ -31,14 +30,12 @@
         .img-grayscale { filter: grayscale(100%); transition: filter 0.8s; }
         .group:hover .img-grayscale { filter: grayscale(0%); }
         
-        /* 弹窗核心样式 - 确保它能显示 */
         #modal { display: none; }
         #modal.active { display: flex; opacity: 1; position: fixed; inset: 0; z-index: 100; align-items: center; justify-content: center; background: rgba(0,0,0,0.5); backdrop-filter: blur(4px); }
         
-        .prose h2 { font-family: 'Playfair Display', serif; font-size: 2.5rem; font-style: italic; font-weight: bold; margin-bottom: 1.5rem; }
+        .prose h2 { font-family: 'Playfair Display', serif; font-size: 2.2rem; font-style: italic; font-weight: bold; margin-bottom: 1.5rem; }
         .prose p { margin-top: 1rem; line-height: 1.8; color: #4b5563; }
         
-        /* 联盟营销按钮样式 */
         .buy-button {
             display: inline-block; background: #000; color: #fff; padding: 12px 30px; 
             border-radius: 99px; font-weight: bold; text-decoration: none; margin: 20px 0;
@@ -58,15 +55,15 @@
                 <div class="w-8 h-8 bg-black flex items-center justify-center rotate-3 rounded-lg">
                     <div class="w-2.5 h-2.5 bg-white rounded-sm"></div>
                 </div>
-                <a href="/" class="text-xl font-extrabold tracking-tighter text-black uppercase">lipengqing96</a>
+                <a href="/" class="text-xl font-extrabold tracking-tighter text-black uppercase">Global Picks</a>
             </div>
         </div>
     </nav>
 
     <header class="max-w-7xl mx-auto px-6 py-20 text-center">
-        <span class="text-[10px] uppercase tracking-[0.5em] text-indigo-400 font-bold mb-6 block">The Digital Notebook</span>
+        <span class="text-[10px] uppercase tracking-[0.5em] text-indigo-400 font-bold mb-6 block">Affiliate Marketing & Global Sourcing</span>
         <h1 class="serif text-5xl md:text-8xl italic font-black tracking-tighter leading-none mb-10 text-gray-950">
-            Archive of <span class="text-gray-400">Thoughts</span>
+            Selected <span class="text-gray-400">Archive</span>
         </h1>
         <div class="w-20 h-1 bg-black mx-auto rounded-full"></div>
     </header>
@@ -80,12 +77,12 @@
     <footer class="bg-black text-white py-24 mt-40">
         <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-16">
             <div>
-                <div class="serif text-4xl italic font-black tracking-tighter text-indigo-400 mb-8">Lipengqing96.</div>
-                <p class="text-gray-400 text-sm leading-relaxed">个人海淘好物分享。作为联盟成员，通过链接购买我可能会获得小额佣金。</p>
+                <div class="serif text-4xl italic font-black tracking-tighter text-indigo-400 mb-8">Global Picks.</div>
+                <p class="text-gray-400 text-sm leading-relaxed">Curated insights on global commerce and marketing strategies.</p>
             </div>
             <div class="flex flex-col justify-end md:items-end">
                 <h4 class="text-[10px] uppercase tracking-[0.4em] text-gray-600 font-bold mb-4">CONNECT</h4>
-                <p class="text-sm font-medium text-gray-300">Telegram: @lpqhaitao</p>
+                <p class="text-sm font-medium text-gray-300">WhatsApp: +86 15556928232</p>
             </div>
         </div>
     </footer>
@@ -115,12 +112,14 @@
                     const title = text.match(/title:\s*["']?(.*?)["']?(\r?\n)/)?.[1] || "Untitled Post";
                     const thumb = text.match(/thumbnail:\s*["']?(.*?)["']?(\r?\n)/)?.[1] || "https://images.unsplash.com/photo-1516131206008-dd041a9764fd?q=80&w=800";
                     const category = text.match(/category:\s*["']?(.*?)["']?(\r?\n)/)?.[1] || "Insights";
-                    // 新增：抓取联盟链接
                     const affLink = text.match(/aff_link:\s*["']?(.*?)["']?(\r?\n)/)?.[1] || "";
                     const content = text.replace(/---[\s\S]*?---/, '');
 
+                    // 这里修复了标题含有单引号导致弹窗不出的问题
+                    const safeTitle = title.replace(/'/g, "\\'");
+
                     const card = `
-                        <article class="group cursor-pointer" onclick="openModal(\`${encodeURIComponent(content)}\`, '${title}', '${thumb}', '${affLink}')">
+                        <article class="group cursor-pointer" onclick="openModal(\`${encodeURIComponent(content)}\`, '${safeTitle}', '${thumb}', '${affLink}')">
                             <div class="relative aspect-[4/5] rounded-[2rem] overflow-hidden bg-gray-100 hover-lift mb-8 glass-card">
                                 <img src="${thumb}" class="img-grayscale w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105">
                                 <div class="absolute inset-0 bg-gradient-to-t from-gray-900/40 to-transparent"></div>
@@ -134,14 +133,12 @@
             } catch (err) { console.error(err); }
         }
 
-        // 弹窗函数 - 确保affLink被传入
         function openModal(encodedContent, title, thumb, affLink) {
             const content = decodeURIComponent(encodedContent);
             const modal = document.getElementById('modal');
             const container = document.getElementById('modal-content');
             
-            // 如果有联盟链接，就显示按钮；没有就不显示
-            const buyBtn = affLink ? `<a href="${affLink}" target="_blank" class="buy-button">立即查看详情/购买 →</a>` : '';
+            const buyBtn = affLink ? `<a href="${affLink}" target="_blank" class="buy-button">View Details / Buy Now →</a>` : '';
 
             container.innerHTML = `
                 <img src="${thumb}" class="w-full h-64 object-cover rounded-[1.5rem] mb-10 shadow-lg">
