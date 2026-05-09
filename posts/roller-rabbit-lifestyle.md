@@ -1,9 +1,11 @@
 ---
 title: "The Pajama Cult: Why Roller Rabbit Is 2026's Most Coveted Apparel Label"
-thumbnail: "https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0b67035f299144419992f87a6d857904~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp"
+thumbnail: "https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/be9b2f5677914488975877c44933a388~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp"
 category: "Apparel"
 aff_link: "https://click.quk.com/tracking?code=6k1r44SVvQ&sub_id=&sub_id2=&url="
 ---
+
+<img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/be9b2f5677914488975877c44933a388~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" style="width:100%; border-radius:20px; margin-bottom:20px;">
 
 ### The Evolution of Sleepwear
 In 2026, the boundary between "home clothes" and "fashion statements" has vanished. **Roller Rabbit** has led this charge, turning traditional block-printed sleepwear into a high-status apparel category that dominates both bedrooms and social media feeds.
