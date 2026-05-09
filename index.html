@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LIPENGQING | ARCHIVE & DEALS</title>
+    <title>LIPENGQING | ARCHIVE</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <style>
@@ -12,6 +12,7 @@
         body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #fcfcfc; color: #1a1a1a; margin: 0; }
         .serif { font-family: 'Playfair Display', serif; }
 
+        /* 背景保持你喜欢的艺术感 */
         .ambient-bg {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background-image: url('https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85?auto=format&fit=crop&q=80&w=2000');
@@ -27,20 +28,23 @@
         .hover-lift { transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1); }
         .hover-lift:hover { transform: translateY(-12px); box-shadow: 0 40px 80px -20px rgba(0,0,0,0.1); }
         
-        /* 稍微保留一点色彩，增加购买欲 */
-        .img-style { filter: saturate(0.6); transition: all 0.8s; }
-        .group:hover .img-style { filter: saturate(1.1); scale: 1.05; }
+        .img-grayscale { filter: grayscale(100%); transition: filter 0.8s; }
+        .group:hover .img-grayscale { filter: grayscale(0%); }
         
-        #modal { display: none; opacity: 0; transition: opacity 0.3s ease; }
-        #modal.active { display: flex; opacity: 1; }
-
-        /* 文章内样式 */
-        .prose h2 { font-family: 'Playfair Display', serif; font-size: 2rem; font-style: italic; font-weight: 800; margin-bottom: 1rem; color: #000; }
-        .prose p { line-height: 1.8; color: #4b5563; margin-bottom: 1.5rem; }
-        .affiliate-box {
-            background: #f5f7ff; border: 2px dashed #c7d2fe; padding: 2rem;
-            border-radius: 1.5rem; text-align: center; margin: 2rem 0;
+        /* 弹窗核心样式 - 确保它能显示 */
+        #modal { display: none; }
+        #modal.active { display: flex; opacity: 1; position: fixed; inset: 0; z-index: 100; align-items: center; justify-content: center; background: rgba(0,0,0,0.5); backdrop-filter: blur(4px); }
+        
+        .prose h2 { font-family: 'Playfair Display', serif; font-size: 2.5rem; font-style: italic; font-weight: bold; margin-bottom: 1.5rem; }
+        .prose p { margin-top: 1rem; line-height: 1.8; color: #4b5563; }
+        
+        /* 联盟营销按钮样式 */
+        .buy-button {
+            display: inline-block; background: #000; color: #fff; padding: 12px 30px; 
+            border-radius: 99px; font-weight: bold; text-decoration: none; margin: 20px 0;
+            transition: transform 0.3s;
         }
+        .buy-button:hover { transform: scale(1.05); background: #4f46e5; }
     </style>
 </head>
 <body class="antialiased">
@@ -56,41 +60,40 @@
                 </div>
                 <a href="/" class="text-xl font-extrabold tracking-tighter text-black uppercase">lipengqing96</a>
             </div>
-            <div class="text-[10px] font-bold text-gray-400">AMZON ASSOCIATE PARTNER</div>
         </div>
     </nav>
 
     <header class="max-w-7xl mx-auto px-6 py-20 text-center">
-        <span class="text-[10px] uppercase tracking-[0.5em] text-indigo-500 font-bold mb-6 block">Curated Selection & Reviews</span>
+        <span class="text-[10px] uppercase tracking-[0.5em] text-indigo-400 font-bold mb-6 block">The Digital Notebook</span>
         <h1 class="serif text-5xl md:text-8xl italic font-black tracking-tighter leading-none mb-10 text-gray-950">
-            Smart <span class="text-gray-400">Shopping</span>
+            Archive of <span class="text-gray-400">Thoughts</span>
         </h1>
         <div class="w-20 h-1 bg-black mx-auto rounded-full"></div>
     </header>
 
-    <main class="max-w-7xl mx-auto px-6 py-10">
+    <main class="max-w-7xl mx-auto px-6 py-20">
         <div id="magazine-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-24">
-            </div>
+            <div class="col-span-full py-20 text-center serif italic text-3xl text-gray-200 animate-pulse">Syncing...</div>
+        </div>
     </main>
 
     <footer class="bg-black text-white py-24 mt-40">
-        <div class="max-w-7xl mx-auto px-6 text-center md:text-left grid grid-cols-1 md:grid-cols-2 gap-16">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-16">
             <div>
-                <div class="serif text-4xl italic font-black tracking-tighter text-indigo-400 mb-8">LPQ Haitao.</div>
-                <p class="text-gray-400 text-sm">作为联盟伙伴，我可能会通过您的购买获得佣金。这支持我继续分享好物。</p>
+                <div class="serif text-4xl italic font-black tracking-tighter text-indigo-400 mb-8">Lipengqing96.</div>
+                <p class="text-gray-400 text-sm leading-relaxed">个人海淘好物分享。作为联盟成员，通过链接购买我可能会获得小额佣金。</p>
             </div>
             <div class="flex flex-col justify-end md:items-end">
-                <h4 class="text-[10px] uppercase tracking-[0.4em] text-gray-600 font-bold mb-4">CONTACT</h4>
-                <p class="text-sm text-gray-300">TG: @lpqhaitao</p>
+                <h4 class="text-[10px] uppercase tracking-[0.4em] text-gray-600 font-bold mb-4">CONNECT</h4>
+                <p class="text-sm font-medium text-gray-300">Telegram: @lpqhaitao</p>
             </div>
         </div>
     </footer>
 
-    <div id="modal" class="fixed inset-0 z-[100] items-center justify-center p-4 md:p-10 bg-black/60 backdrop-blur-md">
-        <div class="bg-white w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-[2.5rem] shadow-2xl relative">
-            <button onclick="closeModal()" class="fixed md:absolute top-6 right-6 w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center font-bold hover:bg-black hover:text-white transition z-[110]">✕</button>
-            <div id="modal-content" class="p-8 md:p-16">
-                </div>
+    <div id="modal" onclick="if(event.target === this) closeModal()">
+        <div class="bg-white w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-[2.5rem] shadow-2xl relative m-4">
+            <button onclick="closeModal()" class="absolute top-8 right-8 w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center font-bold hover:bg-black hover:text-white transition z-10">✕</button>
+            <div id="modal-content" class="p-8 md:p-16 prose max-w-none"></div>
         </div>
     </div>
 
@@ -109,19 +112,19 @@
                     const res = await fetch(`${file.download_url}?t=${Date.now()}`);
                     const text = await res.text();
 
-                    // 增强的数据抓取
-                    const title = text.match(/title:\s*["']?(.*?)["']?(\r?\n)/)?.[1] || "精选好物";
+                    const title = text.match(/title:\s*["']?(.*?)["']?(\r?\n)/)?.[1] || "Untitled Post";
                     const thumb = text.match(/thumbnail:\s*["']?(.*?)["']?(\r?\n)/)?.[1] || "https://images.unsplash.com/photo-1516131206008-dd041a9764fd?q=80&w=800";
-                    const category = text.match(/category:\s*["']?(.*?)["']?(\r?\n)/)?.[1] || "Hot Deal";
+                    const category = text.match(/category:\s*["']?(.*?)["']?(\r?\n)/)?.[1] || "Insights";
+                    // 新增：抓取联盟链接
                     const affLink = text.match(/aff_link:\s*["']?(.*?)["']?(\r?\n)/)?.[1] || "";
                     const content = text.replace(/---[\s\S]*?---/, '');
 
                     const card = `
-                        <article class="group cursor-pointer" onclick="openModal('${encodeURIComponent(content)}', '${title}', '${thumb}', '${affLink}')">
+                        <article class="group cursor-pointer" onclick="openModal(\`${encodeURIComponent(content)}\`, '${title}', '${thumb}', '${affLink}')">
                             <div class="relative aspect-[4/5] rounded-[2rem] overflow-hidden bg-gray-100 hover-lift mb-8 glass-card">
-                                <img src="${thumb}" class="img-style w-full h-full object-cover">
-                                <div class="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent"></div>
-                                <div class="absolute top-6 left-6"><span class="px-3 py-1.5 bg-white text-[9px] font-black uppercase rounded-full shadow-sm">${category}</span></div>
+                                <img src="${thumb}" class="img-grayscale w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105">
+                                <div class="absolute inset-0 bg-gradient-to-t from-gray-900/40 to-transparent"></div>
+                                <div class="absolute top-6 left-6"><span class="px-3 py-1.5 bg-white text-[9px] font-black uppercase rounded-full">${category}</span></div>
                             </div>
                             <h3 class="serif text-3xl italic font-bold leading-tight group-hover:text-indigo-600 transition-colors">${title}</h3>
                         </article>
@@ -131,29 +134,22 @@
             } catch (err) { console.error(err); }
         }
 
+        // 弹窗函数 - 确保affLink被传入
         function openModal(encodedContent, title, thumb, affLink) {
             const content = decodeURIComponent(encodedContent);
+            const modal = document.getElementById('modal');
             const container = document.getElementById('modal-content');
             
-            // 自动生成购买按钮区块
-            const affSection = affLink ? `
-                <div class="affiliate-box">
-                    <p class="text-xs font-bold text-indigo-500 uppercase tracking-widest mb-2">Editor's Choice</p>
-                    <h4 class="text-xl font-bold mb-4">觉得不错？现在就有优惠链接</h4>
-                    <a href="${affLink}" target="_blank" class="inline-block bg-indigo-600 text-white px-10 py-4 rounded-full font-bold hover:bg-black transition-all shadow-lg hover:scale-105">
-                        立即前往官网购买 →
-                    </a>
-                </div>
-            ` : '';
+            // 如果有联盟链接，就显示按钮；没有就不显示
+            const buyBtn = affLink ? `<a href="${affLink}" target="_blank" class="buy-button">立即查看详情/购买 →</a>` : '';
 
             container.innerHTML = `
-                <img src="${thumb}" class="w-full h-72 md:h-96 object-cover rounded-[2rem] mb-10 shadow-lg">
-                <h2 class="serif italic text-4xl md:text-5xl font-black mb-6">${title}</h2>
-                ${affSection}
-                <div class="prose max-w-none text-gray-700">${marked.parse(content)}</div>
+                <img src="${thumb}" class="w-full h-64 object-cover rounded-[1.5rem] mb-10 shadow-lg">
+                <h2 class="serif italic text-4xl mb-4">${title}</h2>
+                ${buyBtn}
+                <div class="markdown-body text-lg text-gray-700 leading-relaxed">${marked.parse(content)}</div>
             `;
-            
-            document.getElementById('modal').classList.add('active');
+            modal.classList.add('active');
             document.body.style.overflow = 'hidden';
         }
 
@@ -162,7 +158,6 @@
             document.body.style.overflow = 'auto';
         }
 
-        document.getElementById('modal').onclick = function(e) { if (e.target === this) closeModal(); };
         loadArchive();
     </script>
 </body>
