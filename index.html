@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LIPENGQING | ARCHIVE</title>
+    <title>PULSE CAPITAL | Global Traffic & Brand Scaling</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <style>
@@ -15,7 +15,6 @@
             background-color: #f8f9fa;
         }
 
-        /* 极简时尚背景 */
         .page-background {
             position: fixed;
             top: 0; left: 0;
@@ -26,7 +25,6 @@
             z-index: -2;
         }
 
-        /* 高级磨砂遮罩 */
         .page-overlay {
             position: fixed;
             top: 0; left: 0;
@@ -46,7 +44,6 @@
         #modal.active { display: flex; opacity: 1; }
         .prose h2 { font-family: 'Playfair Display', serif; font-size: 2.2rem; font-style: italic; font-weight: 800; margin-bottom: 1.5rem; }
         .prose p { line-height: 1.8; color: #374151; margin-bottom: 1.25rem; }
-        .prose a { color: #4f46e5; text-decoration: underline; font-weight: bold; }
     </style>
 </head>
 <body class="antialiased">
@@ -57,21 +54,21 @@
     <nav class="sticky top-0 z-50 w-full glass-nav">
         <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
             <div class="flex items-center space-x-3 text-black">
-                <div class="w-8 h-8 bg-black flex items-center justify-center rotate-3 rounded-lg shadow-lg">
-                    <div class="w-2.5 h-2.5 bg-white rounded-sm"></div>
+                <div class="w-8 h-8 bg-indigo-600 flex items-center justify-center rotate-3 rounded-lg shadow-lg shadow-indigo-200">
+                    <span class="text-white font-bold tracking-tighter italic">P</span>
                 </div>
-                <a href="/" class="text-xl font-extrabold tracking-tighter uppercase">lipengqing96</a>
+                <a href="/" class="text-xl font-black tracking-tighter uppercase italic serif">Pulse Capital.</a>
             </div>
-            <div class="text-[10px] uppercase tracking-[0.4em] font-bold text-black/30 hidden md:block">Est. 2026</div>
+            <div class="text-[10px] uppercase tracking-[0.4em] font-bold text-indigo-600 hidden md:block underline decoration-2 underline-offset-4">High ROI Strategy</div>
         </div>
     </nav>
 
     <header class="max-w-7xl mx-auto px-6 py-24 text-center">
-        <span class="text-[10px] uppercase tracking-[0.6em] text-indigo-500 font-bold mb-6 block">Visual Archive</span>
+        <span class="text-[10px] uppercase tracking-[0.6em] text-indigo-500 font-bold mb-6 block">Premium Affiliate Marketing</span>
         <h1 class="serif text-6xl md:text-8xl italic font-black tracking-tighter leading-none mb-10 text-gray-900">
-            Archive of <span class="text-gray-400">Thoughts</span>
+            Scaling <span class="text-indigo-600">Growth</span> <br> Through Data.
         </h1>
-        <div class="w-16 h-1.5 bg-black mx-auto rounded-full"></div>
+        <div class="w-16 h-1.5 bg-indigo-600 mx-auto rounded-full"></div>
     </header>
 
     <main class="max-w-7xl mx-auto px-6 pb-32">
@@ -83,12 +80,12 @@
     <footer class="bg-black text-white py-24">
         <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-start md:items-end gap-12">
             <div>
-                <div class="serif text-4xl italic font-black tracking-tighter text-indigo-400 mb-6">Lipengqing96.</div>
-                <p class="text-gray-400 max-w-xs text-sm leading-relaxed font-light">Updates are sparse but deliberate. Aesthetic collection of digital insights.</p>
+                <div class="serif text-4xl italic font-black tracking-tighter text-indigo-400 mb-6">Pulse Capital.</div>
+                <p class="text-gray-400 max-w-xs text-sm leading-relaxed font-light">专注于全球流量分发与品牌资产规模化。通过数据驱动，实现从流量到资本的完美跃迁。</p>
             </div>
             <div class="text-right">
-                <h4 class="text-[10px] uppercase tracking-[0.4em] text-gray-500 font-bold mb-4">Channel</h4>
-                <p class="text-sm font-medium tracking-wide">WhatsApp: +86 15556928232</p>
+                <h4 class="text-[10px] uppercase tracking-[0.4em] text-gray-500 font-bold mb-4">Direct Contact</h4>
+                <p class="text-sm font-medium tracking-wide text-white">WhatsApp: +86 15556928232</p>
             </div>
         </div>
     </footer>
@@ -115,17 +112,17 @@
                     const res = await fetch(`${file.download_url}?t=${Date.now()}`);
                     const text = await res.text();
 
-                    const title = text.match(/title:\s*["']?(.*?)["']?(\r?\n)/)?.[1] || "Untitled Entry";
+                    const title = text.match(/title:\s*["']?(.*?)["']?(\r?\n)/)?.[1] || "Untitled Strategy";
                     const thumb = text.match(/thumbnail:\s*["']?(.*?)["']?(\r?\n)/)?.[1] || "https://images.unsplash.com/photo-1516131206008-dd041a9764fd?q=80&w=800";
-                    const category = text.match(/category:\s*["']?(.*?)["']?(\r?\n)/)?.[1] || "Insight";
+                    const category = text.match(/category:\s*["']?(.*?)["']?(\r?\n)/)?.[1] || "Scale";
                     const content = text.replace(/---[\s\S]*?---/, '');
 
                     const card = `
                         <article class="group cursor-pointer" onclick="openModal(\`${encodeURIComponent(content)}\`, '${title.replace(/'/g, "&apos;")}', '${thumb}')">
                             <div class="relative aspect-[4/5] rounded-[2.5rem] overflow-hidden bg-gray-100 hover-lift mb-8">
                                 <img src="${thumb}" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
-                                <div class="absolute inset-0 bg-gradient-to-t from-gray-900/60 via-transparent to-transparent"></div>
-                                <div class="absolute top-8 left-8"><span class="px-4 py-2 bg-white/90 backdrop-blur text-[10px] font-black uppercase rounded-full shadow-lg">${category}</span></div>
+                                <div class="absolute inset-0 bg-gradient-to-t from-indigo-900/60 via-transparent to-transparent"></div>
+                                <div class="absolute top-8 left-8"><span class="px-4 py-2 bg-indigo-600 text-[10px] font-black uppercase tracking-widest rounded-full shadow-lg text-white">${category}</span></div>
                             </div>
                             <h3 class="serif text-3xl italic font-bold leading-tight px-2 group-hover:text-indigo-600 transition-colors">${title}</h3>
                         </article>
