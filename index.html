@@ -3,192 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GLOBAL PICKS | CURATED ARCHIVE</title>
+    <title>GLOBAL PICKS | ARCHIVE</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap');
-        
         body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #fcfcfc; color: #1a1a1a; margin: 0; }
         .serif { font-family: 'Playfair Display', serif; }
-
-        /* 背景：保持极简但增加层级 */
-        .ambient-bg {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background-image: url('https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85?auto=format&fit=crop&q=80&w=2000');
-            background-size: cover; background-position: center; z-index: -2;
-        }
-
-        .bg-overlay {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(255, 255, 255, 0.82);
-            background-image: radial-gradient(#d1d5db 0.6px, transparent 0.6px);
-            background-size: 24px 24px;
-            backdrop-filter: blur(12px); z-index: -1;
-        }
-
+        .ambient-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-image: url('https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85?auto=format&fit=crop&q=80&w=2000'); background-size: cover; background-position: center; z-index: -2; }
+        .bg-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255, 255, 255, 0.85); background-image: radial-gradient(#d1d5db 0.6px, transparent 0.6px); background-size: 24px 24px; backdrop-filter: blur(12px); z-index: -1; }
         .glass-card { background: rgba(255, 255, 255, 0.4); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.7); }
-        
-        /* 卡片动画 */
         .hover-lift { transition: all 0.8s cubic-bezier(0.15, 0.83, 0.66, 1); }
-        .hover-lift:hover { 
-            transform: translateY(-15px); 
-            box-shadow: 0 50px 100px -20px rgba(0,0,0,0.05);
-        }
-        
-        .img-wrapper { overflow: hidden; border-radius: 2.5rem; }
-        .img-grayscale { 
-            filter: grayscale(100%) brightness(0.9); 
-            transition: all 1s cubic-bezier(0.15, 0.83, 0.66, 1); 
-        }
-        .group:hover .img-grayscale { 
-            filter: grayscale(0%) brightness(1); 
-            transform: scale(1.05);
-        }
-
+        .hover-lift:hover { transform: translateY(-15px); box-shadow: 0 50px 100px -20px rgba(0,0,0,0.05); }
+        .img-wrapper { overflow: hidden; border-radius: 2.5rem; position: relative; background-color: #eee; }
+        .img-grayscale { filter: grayscale(100%); transition: all 1s ease; object-fit: cover; width: 100%; height: 100%; }
+        .group:hover .img-grayscale { filter: grayscale(0%); transform: scale(1.05); }
         #modal { display: none; }
-        #modal.active { display: flex; opacity: 1; position: fixed; inset: 0; z-index: 100; align-items: center; justify-content: center; background: rgba(0,0,0,0.4); backdrop-filter: blur(8px); }
-        
-        .prose h2 { font-family: 'Playfair Display', serif; font-size: 2.8rem; font-style: italic; font-weight: 800; line-height: 1.1; margin-bottom: 2rem; }
-        .prose p { font-size: 1.125rem; line-height: 1.8; color: #374151; margin-bottom: 1.5rem; }
-        
-        /* 联盟按钮 */
-        .buy-button {
-            display: inline-flex; align-items: center; gap: 10px;
-            background: linear-gradient(135deg, #1a1a1a 0%, #434343 100%);
-            color: #fff; padding: 16px 36px; border-radius: 99px;
-            font-weight: 700; text-decoration: none; margin: 24px 0;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            transition: all 0.4s;
-        }
-        .buy-button:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(99, 102, 241, 0.3); background: #4f46e5; }
+        #modal.active { display: flex; position: fixed; inset: 0; z-index: 100; align-items: center; justify-content: center; background: rgba(0,0,0,0.4); backdrop-filter: blur(8px); }
+        .buy-button { display: inline-flex; align-items: center; gap: 10px; background: #000; color: #fff; padding: 14px 36px; border-radius: 99px; font-weight: 700; text-decoration: none; margin: 20px 0; transition: all 0.4s; }
+        .buy-button:hover { background: #4f46e5; transform: scale(1.05); }
     </style>
 </head>
 <body class="antialiased">
-
     <div class="ambient-bg"></div>
     <div class="bg-overlay"></div>
-
     <nav class="sticky top-0 z-50 w-full glass-card border-b border-gray-100/50">
-        <div class="max-w-7xl mx-auto px-8 h-24 flex justify-start items-center">
+        <div class="max-w-7xl mx-auto px-8 h-24 flex justify-between items-center">
             <div class="flex items-center space-x-4">
-                <div class="w-10 h-10 bg-black flex items-center justify-center rotate-12 rounded-xl shadow-lg">
-                    <div class="w-3 h-3 bg-white rounded-full animate-pulse"></div>
-                </div>
+                <div class="w-10 h-10 bg-black flex items-center justify-center rotate-12 rounded-xl shadow-lg text-white font-black text-[10px]">GP</div>
                 <a href="/" class="text-2xl font-black tracking-tighter text-black uppercase">Global Picks</a>
             </div>
         </div>
     </nav>
-
     <header class="max-w-7xl mx-auto px-8 py-32 text-center">
-        <span class="text-[11px] uppercase tracking-[0.6em] text-indigo-500 font-extrabold mb-8 block">Global Affiliate Selection</span>
-        <h1 class="serif text-7xl md:text-9xl italic font-black tracking-tighter leading-none mb-12 text-gray-950">
-            Smart <span class="text-gray-300">Curation</span>
-        </h1>
+        <span class="text-[11px] uppercase tracking-[0.6em] text-indigo-500 font-extrabold mb-8 block">Curated Intelligence Archive</span>
+        <h1 class="serif text-7xl md:text-9xl italic font-black tracking-tighter leading-none mb-12 text-gray-950">Smart <span class="text-gray-300">Curation</span></h1>
         <div class="w-24 h-1.5 bg-indigo-500 mx-auto rounded-full"></div>
     </header>
-
     <main class="max-w-7xl mx-auto px-8">
-        <div id="magazine-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-28">
-            <div class="col-span-full py-40 text-center serif italic text-4xl text-gray-200">Initializing Archive...</div>
-        </div>
+        <div id="magazine-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-28"></div>
     </main>
-
     <a href="https://wa.me/8615556928232" target="_blank" class="fixed bottom-10 right-10 z-[60] bg-green-500 text-white p-5 rounded-full shadow-2xl hover:scale-110 transition-transform active:scale-95">
         <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.414 0 .015 5.398.015 12.03c0 2.123.543 4.197 1.574 6.038L0 24l6.105-1.602a11.832 11.832 0 005.937 1.603h.005c6.637 0 12.035-5.399 12.035-12.032a11.761 11.761 0 00-3.489-8.492"/></svg>
     </a>
-
     <footer class="bg-black text-white py-32 mt-48">
         <div class="max-w-7xl mx-auto px-8 grid grid-cols-1 md:grid-cols-2 gap-24">
             <div>
                 <div class="serif text-5xl italic font-black tracking-tighter text-indigo-400 mb-8">Global Picks.</div>
-                <p class="text-gray-500 text-sm leading-loose max-w-sm">Leading the edge of global product sourcing and market intelligence. We bridge the gap between discovery and delivery.</p>
+                <p class="text-gray-500 text-sm">Leading the edge of global product sourcing.</p>
             </div>
             <div class="flex flex-col justify-end md:items-end">
-                <h4 class="text-[11px] uppercase tracking-[0.5em] text-gray-600 font-black mb-6">DIRECT CHANNEL</h4>
-                <a href="https://wa.me/8615556928232" class="text-xl font-bold text-gray-200 hover:text-indigo-400 transition-colors">WhatsApp: +86 155 5692 8232</a>
+                <p class="text-xl font-bold text-gray-200">WhatsApp: +86 155 5692 8232</p>
             </div>
         </div>
     </footer>
-
     <div id="modal" onclick="if(event.target === this) closeModal()">
         <div class="bg-white w-full max-w-5xl max-h-[92vh] overflow-y-auto rounded-[3.5rem] shadow-2xl relative m-4">
-            <button onclick="closeModal()" class="absolute top-10 right-10 w-12 h-12 bg-gray-50 rounded-full flex items-center justify-center font-bold hover:bg-black hover:text-white transition z-10">✕</button>
+            <button onclick="closeModal()" class="absolute top-10 right-10 w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center font-bold hover:bg-black hover:text-white transition z-10">✕</button>
             <div id="modal-content" class="p-10 md:p-20"></div>
         </div>
     </div>
-
     <script>
         const CONFIG = { username: "lipengqing96", repo: "my-blog" };
-
         async function loadArchive() {
             const grid = document.getElementById('magazine-grid');
             try {
                 const response = await fetch(`https://api.github.com/repos/${CONFIG.username}/${CONFIG.repo}/contents/posts?t=${Date.now()}`);
                 const files = await response.json();
-                const mdFiles = files.filter(f => f.name.toLowerCase().endsWith('.md')).reverse();
-                
+                const mdFiles = files.filter(f => f.name.endsWith('.md')).reverse();
                 grid.innerHTML = ''; 
                 for (const file of mdFiles) {
-                    const res = await fetch(`${file.download_url}?t=${Date.now()}`);
+                    const res = await fetch(file.download_url);
                     const text = await res.text();
-
-                    const title = text.match(/title:\s*["']?(.*?)["']?(\r?\n)/)?.[1] || "Untitled Post";
-                    const thumb = text.match(/thumbnail:\s*["']?(.*?)["']?(\r?\n)/)?.[1] || "https://images.unsplash.com/photo-1516131206008-dd041a9764fd?q=80&w=800";
-                    const category = text.match(/category:\s*["']?(.*?)["']?(\r?\n)/)?.[1] || "Global Market";
+                    const title = text.match(/title:\s*["']?(.*?)["']?(\r?\n)/)?.[1] || "Untitled";
+                    // 核心修正：更强大的图片匹配逻辑
+                    let thumb = text.match(/thumbnail:\s*["']?(.*?)["']?(\r?\n)/)?.[1] || "";
+                    const category = text.match(/category:\s*["']?(.*?)["']?(\r?\n)/)?.[1] || "Global";
                     const affLink = text.match(/aff_link:\s*["']?(.*?)["']?(\r?\n)/)?.[1] || "";
                     const content = text.replace(/---[\s\S]*?---/, '');
-
                     const safeTitle = title.replace(/'/g, "\\'");
-
                     const card = `
                         <article class="group cursor-pointer" onclick="openModal(\`${encodeURIComponent(content)}\`, '${safeTitle}', '${thumb}', '${affLink}')">
-                            <div class="img-wrapper aspect-[4/5] hover-lift glass-card mb-10">
-                                <img src="${thumb}" class="img-grayscale w-full h-full object-cover">
-                                <div class="absolute inset-0 bg-gradient-to-t from-gray-900/50 to-transparent opacity-60"></div>
-                                <div class="absolute top-8 left-8"><span class="px-4 py-2 bg-white/90 backdrop-blur-md text-[10px] font-black uppercase rounded-full shadow-sm tracking-widest">${category}</span></div>
-                            </div>
-                            <h3 class="serif text-4xl italic font-bold leading-[1.2] group-hover:text-indigo-600 transition-colors px-2">${title}</h3>
-                        </article>
-                    `;
-                    grid.innerHTML += card;
-                }
-            } catch (err) { console.error(err); }
-        }
-
-        function openModal(encodedContent, title, thumb, affLink) {
-            const content = decodeURIComponent(encodedContent);
-            const modal = document.getElementById('modal');
-            const container = document.getElementById('modal-content');
-            
-            const buyBtn = affLink ? `
-                <div class="my-10 p-10 bg-gray-50 rounded-[2.5rem] border border-gray-100 flex flex-col md:flex-row items-center justify-between gap-6">
-                    <div class="text-center md:text-left">
-                        <span class="text-[10px] font-black text-indigo-500 uppercase tracking-[0.3em]">Exclusive Offer</span>
-                        <h4 class="text-2xl font-bold mt-1 tracking-tight">Access this selection now</h4>
-                    </div>
-                    <a href="${affLink}" target="_blank" class="buy-button">Explore / Purchase →</a>
-                </div>
-            ` : '';
-
-            container.innerHTML = `
-                <div class="rounded-[3rem] overflow-hidden shadow-2xl mb-16">
-                    <img src="${thumb}" class="w-full h-[450px] object-cover">
-                </div>
-                <h2 class="serif italic text-gray-950">${title}</h2>
-                ${buyBtn}
-                <div class="markdown-body prose max-w-none">${marked.parse(content)}</div>
-            `;
-            modal.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeModal() {
-            document.getElementById('modal').classList.remove('active');
-            document.body.style.overflow = 'auto';
-        }
-
-        loadArchive();
-    </script>
-</body>
-</html>
+                            <div class="img-wrapper aspect-[4/5] hover-lift glass-
