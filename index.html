@@ -6,20 +6,13 @@
     <title>MODERN PULSE | 现代脉动生活志</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* 引入高级感衬线字体用于标题 */
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Plus+Jakarta+Sans:wght@300;400;600&display=swap');
-        
         body { font-family: 'Plus Jakarta Sans', sans-serif; }
         .serif { font-family: 'Playfair Display', serif; }
-        
         .nav-blur { background: rgba(255, 255, 255, 0.7); backdrop-filter: saturate(180%) blur(20px); }
         .hover-lift { transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); }
         .hover-lift:hover { transform: translateY(-8px); }
-        
-        /* 仿时尚杂志的半透明渐变 */
-        .hero-gradient {
-            background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.6) 100%);
-        }
+        .hero-gradient { background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.6) 100%); }
     </style>
 </head>
 <body class="bg-[#fafafa] text-[#1a1a1a]">
@@ -29,7 +22,7 @@
             <div class="serif text-2xl font-bold italic tracking-tighter">Modern Pulse.</div>
             <div class="hidden md:flex space-x-10 text-[11px] uppercase tracking-[0.2em] font-bold text-black/60">
                 <a href="/" class="text-black border-b border-black pb-1">Archive</a>
-                <a href="#" class="hover:text-black transition">Digital Nomad</a>
+                <a href="#" class="hover:text-black transition">TikTok Ads</a>
                 <a href="#" class="hover:text-black transition">Aesthetics</a>
                 <a href="#" class="hover:text-black transition">Travel</a>
             </div>
@@ -45,7 +38,7 @@
                 <h1 class="serif text-4xl md:text-6xl italic leading-none max-w-3xl">数字游牧：在清迈的咖啡馆里，重新定义工作的边界</h1>
                 <div class="mt-6 flex items-center space-x-4">
                     <div class="h-[1px] w-12 bg-white/50"></div>
-                    <p class="text-xs uppercase tracking-widest opacity-80 text-white">Read the full issue</p>
+                    <p class="text-xs uppercase tracking-widest opacity-80 text-white">Explore Modern Trends</p>
                 </div>
             </div>
         </div>
@@ -65,7 +58,7 @@
 
         <section class="mt-32 py-24 border-t border-black/5 text-center">
             <h3 class="serif text-4xl italic mb-6">Stay in the Pulse.</h3>
-            <p class="text-sm text-black/40 mb-10 tracking-wide">每周发送一份关于审美、效率与旅行的小众通讯。</p>
+            <p class="text-sm text-black/40 mb-10 tracking-wide">订阅每周周报，获取 TikTok Ads 与全球趋势深度解析。</p>
             <div class="max-w-md mx-auto flex items-center border-b border-black pb-2">
                 <input type="email" placeholder="Your Email Address" class="flex-1 bg-transparent py-2 outline-none text-sm placeholder:text-black/20">
                 <button class="text-[10px] uppercase tracking-widest font-bold hover:opacity-50 transition">Join</button>
@@ -78,32 +71,46 @@
     </footer>
 
     <script>
+        // --- 已根据你的反馈修正配置 ---
         const CONFIG = {
-            username: "lpqhaitao", 
+            username: "lipengqing96", 
             repo: "my-blog"
         };
 
         async function loadMagazine() {
             const grid = document.getElementById('magazine-grid');
             try {
+                // 向你的 GitHub 仓库请求内容
                 const response = await fetch(`https://api.github.com/repos/${CONFIG.username}/${CONFIG.repo}/contents/posts`);
-                if (!response.ok) throw new Error('Failed');
+                
+                if (!response.ok) {
+                    throw new Error('API Response not OK');
+                }
+                
                 const files = await response.json();
+                
+                // 筛选出文章文件
                 const mdFiles = files.filter(f => f.name.endsWith('.md')).reverse();
                 
+                if (mdFiles.length === 0) {
+                    grid.innerHTML = '<p class="col-span-full text-center serif italic">No stories found in /posts folder.</p>';
+                    return;
+                }
+
                 grid.innerHTML = ''; 
 
                 for (const file of mdFiles) {
                     const res = await fetch(file.download_url);
                     const text = await res.text();
 
+                    // 提取标题、图片和分类
                     const title = text.match(/title:\s*["']?(.*?)["']?(\r?\n)/)?.[1] || "Untitled Post";
                     const thumb = text.match(/thumbnail:\s*["']?(.*?)["']?(\r?\n)/)?.[1] || "https://images.unsplash.com/photo-1516131206008-dd041a9764fd?q=80&w=800";
-                    const category = text.match(/category:\s*(.*)/)?.[1] || "Journal";
+                    const category = text.match(/category:\s*["']?(.*?)["']?(\r?\n)/)?.[1] || "Insights";
 
                     const card = `
                         <article class="group cursor-pointer hover-lift">
-                            <div class="aspect-[4/5] overflow-hidden bg-gray-100 mb-6 relative">
+                            <div class="aspect-[4/5] overflow-hidden bg-gray-100 mb-6 relative shadow-sm">
                                 <img src="${thumb}" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" alt="${title}">
                                 <div class="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors"></div>
                             </div>
@@ -119,7 +126,8 @@
                     grid.innerHTML += card;
                 }
             } catch (err) {
-                grid.innerHTML = '<p class="col-span-full text-center serif italic">Connections interrupted.</p>';
+                console.error("Fetch error:", err);
+                grid.innerHTML = '<p class="col-span-full text-center serif italic">Connections interrupted. 请确认仓库已设为 Public 且存在 /posts 文件夹。</p>';
             }
         }
         loadMagazine();
