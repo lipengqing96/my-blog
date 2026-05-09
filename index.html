@@ -3,205 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AFFILIATE PULSE | Premium Brand Growth & Traffic Solutions</title>
+    <title>AFFILIATE PULSE | Premium Brand Growth</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,900&family=Plus+Jakarta+Sans:wght@300;400;500;700;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,900&family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap');
         
-        :root { --accent: #4f46e5; --dark: #0f172a; }
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #ffffff; color: var(--dark); overflow-x: hidden; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #050505; color: #fff; overflow-x: hidden; }
         .serif { font-family: 'Playfair Display', serif; }
         
-        /* 动感渐变背景 */
-        .mesh-bg {
+        /* 氛围感背景 */
+        .ambient-bg {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: radial-gradient(circle at 10% 20%, rgba(79, 70, 229, 0.03) 0%, transparent 50%),
-                        radial-gradient(circle at 90% 80%, rgba(79, 70, 229, 0.03) 0%, transparent 50%);
+            background: radial-gradient(circle at 20% 30%, rgba(79, 70, 229, 0.15) 0%, transparent 40%),
+                        radial-gradient(circle at 80% 70%, rgba(67, 56, 202, 0.1) 0%, transparent 40%);
             z-index: -1;
         }
 
-        .hover-card { transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
-        .hover-card:hover { transform: translateY(-12px); box-shadow: 0 30px 60px -12px rgba(0,0,0,0.1); }
-        
-        .btn-glow:hover { box-shadow: 0 0 20px rgba(79, 70, 229, 0.4); }
-        
-        /* 滚动文字效果 */
-        .marquee { white-space: nowrap; overflow: hidden; }
-        .marquee-content { display: inline-block; animation: marquee 30s linear infinite; }
-        @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+        .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.08); }
+        .hover-up { transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1); }
+        .hover-up:hover { transform: translateY(-12px); border-color: rgba(99, 102, 241, 0.4); box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
     </style>
 </head>
 <body class="antialiased">
 
-    <div class="mesh-bg"></div>
+    <div class="ambient-bg"></div>
 
-    <nav class="sticky top-0 z-50 w-full bg-white/80 backdrop-blur-md border-b border-gray-100">
-        <div class="max-w-7xl mx-auto px-6 h-24 flex justify-between items-center">
+    <nav class="sticky top-0 z-50 w-full border-b border-white/5 bg-black/20 backdrop-blur-lg">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
             <div class="flex items-center space-x-3">
-                <div class="w-10 h-10 bg-indigo-600 rounded-xl flex items-center justify-center rotate-3 shadow-lg shadow-indigo-200">
-                    <span class="text-white font-bold text-xl">P.</span>
+                <div class="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center shadow-lg shadow-indigo-500/20">
+                    <span class="text-white font-bold tracking-tighter italic">P</span>
                 </div>
-                <a href="/" class="serif text-2xl font-black italic tracking-tighter">Affiliate Pulse.</a>
+                <a href="/" class="serif text-xl font-bold italic tracking-tight">Affiliate Pulse.</a>
             </div>
-            <div class="hidden lg:flex items-center space-x-10 text-[11px] uppercase tracking-[0.2em] font-extrabold text-gray-500">
-                <a href="#" class="hover:text-indigo-600 transition">Market Insights</a>
-                <a href="#" class="hover:text-indigo-600 transition">Partnerships</a>
-                <a href="#" class="px-5 py-2 bg-black text-white rounded-full btn-glow transition">Work with Me</a>
+            <div class="text-[10px] uppercase tracking-[0.4em] font-bold text-white/40">
+                Data Driven <span class="text-indigo-400">•</span> 2026 Edition
             </div>
         </div>
     </nav>
 
-    <header class="max-w-7xl mx-auto px-6 pt-20 pb-32">
+    <header class="max-w-7xl mx-auto px-6 pt-24 pb-32">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-            <div class="lg:col-span-7">
-                <div class="flex items-center space-x-2 text-indigo-600 mb-6">
-                    <span class="h-px w-8 bg-indigo-600"></span>
-                    <span class="text-[10px] font-black uppercase tracking-[0.4em]">Official Traffic Partner</span>
+            <div class="lg:col-span-8">
+                <div class="inline-flex items-center space-x-3 mb-8 px-4 py-2 rounded-full border border-white/10 bg-white/5">
+                    <span class="w-2 h-2 bg-indigo-500 rounded-full animate-ping"></span>
+                    <span class="text-[10px] font-bold uppercase tracking-widest text-indigo-300">Scaling Brands Globally</span>
                 </div>
-                <h1 class="serif text-6xl md:text-8xl font-black italic leading-[0.95] mb-10">
-                    Scaling Brands <br> Through <span class="text-indigo-600">Elite</span> Traffic.
+                <h1 class="serif text-6xl md:text-8xl font-black italic leading-none mb-10 tracking-tight">
+                    Premium <br> <span class="text-indigo-500">Traffic</span> Partner.
                 </h1>
-                <p class="text-gray-500 text-xl max-w-2xl leading-relaxed mb-12">
-                    我们通过精准的流量分发和内容营销，帮助全球品牌实现高转化增长。无论是在 TikTok、3C 数码还是高佣充值领域，我们只关注 ROI。
+                <p class="text-white/50 text-xl max-w-2xl leading-relaxed mb-12 font-light">
+                    我们通过精准流量分发与深度内容营销，赋能品牌出海。提供 TikTok 广告投放、3C 数码及高佣充值领域的一站式增长方案。
                 </p>
-                <div class="flex flex-wrap gap-6">
-                    <button class="px-10 py-5 bg-indigo-600 text-white rounded-full font-bold text-sm uppercase tracking-widest btn-glow transition hover:scale-105">
-                        Get Started Now
+                <div class="flex items-center space-x-8">
+                    <button class="px-10 py-5 bg-indigo-600 text-white rounded-xl font-bold text-sm uppercase tracking-[0.2em] hover:bg-indigo-500 transition shadow-xl shadow-indigo-500/20">
+                        Inquiry Now
                     </button>
-                    <div class="flex -space-x-3 items-center">
-                        <img class="w-12 h-12 rounded-full border-4 border-white" src="https://i.pravatar.cc/100?u=1" alt="">
-                        <img class="w-12 h-12 rounded-full border-4 border-white" src="https://i.pravatar.cc/100?u=2" alt="">
-                        <div class="w-12 h-12 rounded-full border-4 border-white bg-gray-100 flex items-center justify-center text-[10px] font-bold">+50</div>
-                        <span class="ml-4 text-xs font-bold text-gray-400 uppercase tracking-widest">Brand Partners</span>
+                    <div class="hidden sm:block">
+                        <p class="text-2xl font-bold italic serif">2.4M+</p>
+                        <p class="text-[9px] uppercase tracking-widest text-white/30">Monthly Impressions</p>
                     </div>
                 </div>
             </div>
-            <div class="lg:col-span-5 relative">
-                <div class="relative z-10 rounded-3xl overflow-hidden shadow-2xl shadow-indigo-100 transform skew-y-1">
-                    <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=1200" class="w-full h-full object-cover" alt="Marketing Tech">
-                </div>
-                <div class="absolute -top-10 -right-6 bg-white p-6 rounded-2xl shadow-2xl z-20 border border-indigo-50">
-                    <div class="text-indigo-600 text-3xl font-black serif italic">2.4M+</div>
-                    <p class="text-[9px] uppercase tracking-widest text-gray-400 font-bold">Monthly Impressions</p>
+            <div class="lg:col-span-4 hidden lg:block">
+                <div class="relative group">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-2xl blur opacity-20 group-hover:opacity-40 transition"></div>
+                    <div class="relative aspect-[3/4] rounded-2xl overflow-hidden border border-white/10">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" alt="Data View">
+                    </div>
                 </div>
             </div>
         </div>
     </header>
 
-    <section class="py-20 bg-gray-50 border-y border-gray-100 marquee">
-        <div class="marquee-content flex items-center space-x-20 opacity-30 grayscale font-black serif italic text-3xl">
-            <span>TIKTOK ADS</span> <span>DAZN PARTNER</span> <span>3C TECH</span> <span>GLOBAL TRAVEL</span> <span>E-COMMERCE</span>
-            <span>TIKTOK ADS</span> <span>DAZN PARTNER</span> <span>3C TECH</span> <span>GLOBAL TRAVEL</span> <span>E-COMMERCE</span>
-        </div>
-    </section>
-
-    <main class="max-w-7xl mx-auto px-6 py-32">
-        <div class="flex flex-col md:flex-row md:items-end justify-between mb-24 gap-8">
-            <div class="max-w-2xl">
-                <h2 class="serif text-5xl italic font-bold mb-6 underline decoration-indigo-200 underline-offset-8">Strategy Insights</h2>
-                <p class="text-gray-400 font-medium">获取最新的市场分析、充值技巧及品牌推广案例研究。</p>
-            </div>
-            <div class="flex space-x-4">
-                <div class="p-4 border border-gray-100 rounded-full text-indigo-600 font-bold text-[10px] uppercase tracking-widest">Global Feed</div>
-            </div>
-        </div>
-
-        <div id="magazine-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-24">
-            <div class="col-span-full py-20 text-center">
-                <div class="w-16 h-16 border-4 border-indigo-600 border-t-transparent rounded-full animate-spin mx-auto"></div>
-                <p class="serif italic text-2xl text-gray-300 mt-8">Loading Intelligence...</p>
-            </div>
-        </div>
-    </main>
-
-    <footer class="bg-indigo-950 text-white pt-32 pb-16 px-6">
-        <div class="max-w-7xl mx-auto">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-20 mb-32">
-                <div class="lg:col-span-6">
-                    <h3 class="serif text-5xl italic font-black mb-10 tracking-tighter">Let's build your <br> <span class="text-indigo-400">Empire</span> together.</h3>
-                    <p class="text-indigo-200/60 text-lg max-w-md leading-loose">
-                        We don't just run ads; we engineer high-performance conversion funnels for brands that want to dominate their niche.
-                    </p>
-                </div>
-                <div class="lg:col-span-6 grid grid-cols-2 gap-10">
-                    <div>
-                        <h4 class="text-[10px] uppercase tracking-[0.3em] font-black text-white/40 mb-8">Navigation</h4>
-                        <ul class="space-y-4 text-sm font-bold">
-                            <li><a href="#" class="hover:text-indigo-400 transition">Case Studies</a></li>
-                            <li><a href="#" class="hover:text-indigo-400 transition">Top-up Guides</a></li>
-                            <li><a href="#" class="hover:text-indigo-400 transition">Privacy Policy</a></li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h4 class="text-[10px] uppercase tracking-[0.3em] font-black text-white/40 mb-8">Follow</h4>
-                        <ul class="space-y-4 text-sm font-bold">
-                            <li><a href="#" class="hover:text-indigo-400 transition">Twitter / X</a></li>
-                            <li><a href="#" class="hover:text-indigo-400 transition">LinkedIn</a></li>
-                            <li><a href="#" class="hover:text-indigo-400 transition">Telegram</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-[10px] uppercase tracking-[0.4em] text-white/30 font-bold gap-6">
-                <p>© 2026 Affiliate Pulse. Created for lipengqing96</p>
-                <p>Designed for Profit & Scale</p>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        const CONFIG = { username: "lipengqing96", repo: "my-blog" };
-
-        async function fetchPosts() {
-            const grid = document.getElementById('magazine-grid');
-            try {
-                const response = await fetch(`https://api.github.com/repos/${CONFIG.username}/${CONFIG.repo}/contents/posts?t=${Date.now()}`);
-                if (!response.ok) throw new Error('API Error');
-                const files = await response.json();
-                const mdFiles = files.filter(f => f.name.toLowerCase().endsWith('.md')).reverse();
-                
-                if (mdFiles.length === 0) {
-                    grid.innerHTML = '<p class="col-span-full text-center serif italic text-gray-400">No active guides. Check back later.</p>';
-                    return;
-                }
-
-                grid.innerHTML = ''; 
-
-                for (const file of mdFiles) {
-                    const res = await fetch(`${file.download_url}?t=${Date.now()}`);
-                    const text = await res.text();
-
-                    const title = text.match(/title:\s*["']?(.*?)["']?(\r?\n)/)?.[1] || "Global Market Update";
-                    const thumb = text.match(/thumbnail:\s*["']?(.*?)["']?(\r?\n)/)?.[1] || "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800";
-                    const category = text.match(/category:\s*["']?(.*?)["']?(\r?\n)/)?.[1] || "Strategy";
-
-                    const card = `
-                        <article class="group cursor-pointer hover-card">
-                            <div class="relative aspect-[16/10] overflow-hidden bg-gray-100 rounded-3xl mb-10 shadow-sm">
-                                <img src="${thumb}" class="w-full h-full object-cover transition-all duration-1000 group-hover:scale-110" alt="${title}">
-                                <div class="absolute inset-0 bg-indigo-900/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                                <div class="absolute top-6 left-6">
-                                    <span class="px-4 py-2 bg-white/95 backdrop-blur text-[10px] font-black uppercase tracking-widest rounded-full shadow-lg text-indigo-600">${category}</span>
-                                </div>
-                            </div>
-                            <div class="px-2">
-                                <h3 class="serif text-3xl font-bold italic leading-tight group-hover:text-indigo-600 transition-colors mb-6">
-                                    ${title}
-                                </h3>
-                                <div class="flex items-center space-x-3 text-[11px] uppercase tracking-[0.2em] font-black text-gray-400">
-                                    <span>Read Analysis</span>
-                                    <svg class="w-4 h-4 transform group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
-                                </div>
-                            </div>
-                        </article>
-                    `;
-                    grid.innerHTML += card;
-                }
-            } catch (err) {
-                grid.innerHTML = '<div class="col-span-full py-12 text-center serif italic text-red-400">Failed to link with market data.</div>';
-            }
-        }
-        fetchPosts();
-    </script>
-</body>
-</html>
+    <main class="max-w-7xl mx-auto px-6 py-20">
+        <div class="flex items-baseline justify-between mb-20 border-b border-white/5 pb-8">
+            <h2 class="serif text-4xl italic font-bold">Insights & Analysis</h2>
