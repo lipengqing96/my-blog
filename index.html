@@ -1,95 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LIPENGQING | ARCHIVE</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        /* 引入具有现代感和高级感的字体 */
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap');
-        
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #fcfcfc; color: #1a1a1a; }
-        .serif { font-family: 'Playfair Display', serif; }
-        
-        /* 动态呼吸感背景 */
-        .ambient-bg {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: 
-                radial-gradient(circle at 10% 20%, rgba(216, 180, 254, 0.15) 0%, transparent 40%),
-                radial-gradient(circle at 90% 80%, rgba(199, 210, 254, 0.15) 0%, transparent 40%);
-            z-index: -1;
-            filter: blur(100px);
-        }
-
-        /* 高级玻璃拟态卡片 */
-        .glass-card {
-            background: rgba(255, 255, 255, 0.6);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.8);
-        }
-
-        /* 优雅的鼠标悬停浮起和微细描边 */
-        .hover-lift { transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1); }
-        .hover-lift:hover { 
-            transform: translateY(-12px); 
-            box-shadow: 0 40px 80px -20px rgba(0,0,0,0.1);
-            border-color: rgba(99, 102, 241, 0.15);
-        }
-        
-        /* 图片黑白到彩色的过渡 */
-        .img-grayscale { filter: grayscale(100%); transition: filter 0.8s; }
-        .group:hover .img-grayscale { filter: grayscale(0%); }
-
-    </style>
-</head>
-<body class="antialiased">
-
-    <div class="ambient-bg"></div>
-
-    <nav class="sticky top-0 z-50 w-full glass-card border-b border-gray-100">
-        <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
-            <div class="flex items-center space-x-3">
-                <div class="w-8 h-8 bg-black flex items-center justify-center rotate-3 rounded-lg">
-                    <div class="w-2.5 h-2.5 bg-white rounded-sm"></div>
-                </div>
-                <a href="/" class="text-xl font-extrabold tracking-tighter text-black">LIPENGQING96</a>
-            </div>
-            <div class="hidden md:flex items-center space-x-10 text-[11px] uppercase tracking-[0.2em] font-bold text-gray-400">
-                <span>Updated irregularly</span>
-                <span class="text-indigo-400">•</span>
-                <span id="date-display">MAY 2026</span>
-            </div>
-        </div>
-    </nav>
-
-    <header class="max-w-7xl mx-auto px-6 py-20 text-center">
-        <span class="text-[10px] uppercase tracking-[0.5em] text-indigo-400 font-bold mb-6 block">The Digital Notebook</span>
-        <h1 class="serif text-5xl md:text-8xl italic font-black tracking-tighter leading-none mb-10 text-gray-950">
-            Archive of <span class="text-gray-400">Thoughts</span>
-        </h1>
-        <div class="w-20 h-1 bg-black mx-auto rounded-full"></div>
-    </header>
-
-    <main class="max-w-7xl mx-auto px-6 py-20">
-        <div id="magazine-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-24">
-            <div class="col-span-full py-20 text-center serif italic text-3xl text-gray-200 animate-pulse">Curating Feed...</div>
-        </div>
-    </main>
-
-    <footer class="bg-black text-white py-24 mt-40">
-        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-16">
-            <div class="lg:col-span-6">
+<footer class="bg-black text-white py-24 mt-40">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-16">
+            <div>
                 <div class="serif text-4xl italic font-black tracking-tighter text-indigo-400 mb-8">Lipengqing96.</div>
-                <p class="text-gray-400 max-w-md text-sm leading-relaxed">A personal space for digital documentation, analysis, and aesthetic collection. Updates are sparse but deliberate.</p>
+                <p class="text-gray-400 max-w-md text-sm leading-relaxed">
+                    A personal space for digital documentation and aesthetic collection. <br>
+                    Updates are sparse but deliberate.
+                </p>
             </div>
-            <div class="lg:col-span-6 grid grid-cols-2 gap-10">
-                <div>
-                    <h4 class="text-[10px] uppercase tracking-[0.4em] text-gray-600 font-bold mb-8">DIRECTORY</h4>
-                    <ul class="space-y-4 text-sm font-medium text-gray-300">
-                        <li><a href="#" class="hover:text-indigo-400 transition">GitHub Profile</a></li>
-                        <li><a href="/admin/" class="hover:text-indigo-400 transition">Login (Admin)</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="text-[10px] uppercase tracking-[0.4em] text-gray-600 font-bold mb-8">
+            <div class="flex flex-col justify-end md:items-end">
+                <h4 class="text-[10px] uppercase tracking-[0.4em] text-gray-600 font-bold mb-4">CONNECT</h4>
+                <p class="text-sm font-medium text-gray-300">Telegram: @lpqhaitao</p>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto mt-20 pt-10 border-t border-gray-900 px-6 flex justify-between items-center text-[10px] uppercase tracking-[0.4em] text-gray-600 font-bold gap-6">
+            <p>© 2026 DIGITAL LOG</p>
+            <p>Designed for aesthetics</p>
+        </div>
+    </footer>
