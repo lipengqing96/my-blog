@@ -9,94 +9,93 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap');
         
-        body { 
-            font-family: 'Plus Jakarta Sans', sans-serif; 
-            margin: 0; 
-            background-color: #f8f9fa;
-        }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #fcfcfc; color: #1a1a1a; margin: 0; }
+        .serif { font-family: 'Playfair Display', serif; }
 
-        /* 极简时尚背景设置 */
-        .page-background {
-            position: fixed;
-            top: 0; left: 0;
+        /* 时尚大众审美背景图层 */
+        .ambient-bg {
+            position: fixed; 
+            top: 0; left: 0; 
             width: 100%; height: 100%;
-            /* 选用一张极具现代审美、光影柔和的背景图 */
-            background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=2000');
+            /* 使用一张具有高级光影感的极简室内/艺术背景图 */
+            background-image: url('https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85?auto=format&fit=crop&q=80&w=2000');
             background-size: cover;
             background-position: center;
-            z-index: -2;
-        }
-
-        /* 高级磨砂感遮罩，确保文字易读 */
-        .page-overlay {
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background: rgba(255, 255, 255, 0.88);
-            backdrop-filter: blur(15px);
             z-index: -1;
         }
 
-        .serif { font-family: 'Playfair Display', serif; }
-        .glass-nav { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(0,0,0,0.05); }
-        
-        .hover-lift { transition: all 0.5s cubic-bezier(0.2, 1, 0.3, 1); }
-        .hover-lift:hover { transform: translateY(-8px); box-shadow: 0 30px 60px -15px rgba(0,0,0,0.1); }
+        /* 背景遮罩，确保内容可读性，同时营造磨砂高级感 */
+        .bg-overlay {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            z-index: -1;
+        }
+
+        .glass-card { background: rgba(255, 255, 255, 0.6); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.8); }
+        .hover-lift { transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1); }
+        .hover-lift:hover { transform: translateY(-12px); box-shadow: 0 40px 80px -20px rgba(0,0,0,0.1); border-color: rgba(99, 102, 241, 0.15); }
+        .img-grayscale { filter: grayscale(100%); transition: filter 0.8s; }
+        .group:hover .img-grayscale { filter: grayscale(0%); }
         
         #modal { display: none; opacity: 0; transition: opacity 0.3s ease; }
         #modal.active { display: flex; opacity: 1; }
-        .prose h2 { font-family: 'Playfair Display', serif; font-size: 2.2rem; font-style: italic; font-weight: 800; margin-bottom: 1.5rem; }
-        .prose p { line-height: 1.8; color: #374151; margin-bottom: 1.25rem; }
+        .prose a { color: #4f46e5; text-decoration: underline; font-weight: bold; }
+        .prose h2 { font-family: 'Playfair Display', serif; font-size: 2.5rem; font-style: italic; font-weight: black; margin-bottom: 1.5rem; }
+        .prose h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-top: 2rem; font-style: italic; font-weight: bold; }
+        .prose p { margin-top: 1rem; line-height: 1.8; color: #4b5563; }
+        .prose blockquote { border-left: 4px solid #4f46e5; padding-left: 1rem; font-style: italic; background: #f9fafb; padding: 1rem; margin: 1.5rem 0; }
     </style>
 </head>
 <body class="antialiased">
 
-    <div class="page-background"></div>
-    <div class="page-overlay"></div>
+    <div class="ambient-bg"></div>
+    <div class="bg-overlay"></div>
 
-    <nav class="sticky top-0 z-50 w-full glass-nav">
+    <nav class="sticky top-0 z-50 w-full glass-card border-b border-gray-100">
         <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
-            <div class="flex items-center space-x-3 text-black">
-                <div class="w-8 h-8 bg-black flex items-center justify-center rotate-3 rounded-lg shadow-lg">
+            <div class="flex items-center space-x-3">
+                <div class="w-8 h-8 bg-black flex items-center justify-center rotate-3 rounded-lg">
                     <div class="w-2.5 h-2.5 bg-white rounded-sm"></div>
                 </div>
-                <a href="/" class="text-xl font-extrabold tracking-tighter uppercase">lipengqing96</a>
+                <a href="/" class="text-xl font-extrabold tracking-tighter text-black uppercase">lipengqing96</a>
             </div>
-            <div class="text-[10px] uppercase tracking-[0.4em] font-bold text-black/30 hidden md:block">Est. 2026</div>
         </div>
     </nav>
 
-    <header class="max-w-7xl mx-auto px-6 py-24 text-center">
-        <span class="text-[10px] uppercase tracking-[0.6em] text-indigo-500 font-bold mb-6 block">Visual Archive</span>
-        <h1 class="serif text-6xl md:text-8xl italic font-black tracking-tighter leading-none mb-10 text-gray-900">
+    <header class="max-w-7xl mx-auto px-6 py-20 text-center">
+        <span class="text-[10px] uppercase tracking-[0.5em] text-indigo-400 font-bold mb-6 block">The Digital Notebook</span>
+        <h1 class="serif text-5xl md:text-8xl italic font-black tracking-tighter leading-none mb-10 text-gray-950">
             Archive of <span class="text-gray-400">Thoughts</span>
         </h1>
-        <div class="w-16 h-1.5 bg-black mx-auto rounded-full"></div>
+        <div class="w-20 h-1 bg-black mx-auto rounded-full"></div>
     </header>
 
-    <main class="max-w-7xl mx-auto px-6 pb-32">
-        <div id="magazine-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-24">
-            <div class="col-span-full py-20 text-center serif italic text-2xl text-gray-300 animate-pulse">Syncing Library...</div>
+    <main class="max-w-7xl mx-auto px-6 py-20">
+        <div id="magazine-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-24">
+            <div class="col-span-full py-20 text-center serif italic text-3xl text-gray-200 animate-pulse">Syncing...</div>
         </div>
     </main>
 
-    <footer class="bg-black text-white py-24">
-        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-start md:items-end gap-12">
+    <footer class="bg-black text-white py-24 mt-40">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-16">
             <div>
-                <div class="serif text-4xl italic font-black tracking-tighter text-indigo-400 mb-6">Lipengqing96.</div>
-                <p class="text-gray-400 max-w-xs text-sm leading-relaxed font-light">Updates are sparse but deliberate. Aesthetic collection of digital insights.</p>
+                <div class="serif text-4xl italic font-black tracking-tighter text-indigo-400 mb-8">Lipengqing96.</div>
+                <p class="text-gray-400 max-sm text-sm leading-relaxed">Personal documentation. Updates sparse but deliberate.</p>
             </div>
-            <div class="text-right">
-                <h4 class="text-[10px] uppercase tracking-[0.4em] text-gray-500 font-bold mb-4">Channel</h4>
-                <p class="text-sm font-medium tracking-wide">Telegram: @lpqhaitao</p>
+            <div class="flex flex-col justify-end md:items-end">
+                <h4 class="text-[10px] uppercase tracking-[0.4em] text-gray-600 font-bold mb-4">CONNECT</h4>
+                <p class="text-sm font-medium text-gray-300">Telegram: @lpqhaitao</p>
             </div>
         </div>
     </footer>
 
-    <div id="modal" class="fixed inset-0 z-[100] items-center justify-center p-4 md:p-10 bg-black/60 backdrop-blur-md">
-        <div class="bg-white w-full max-w-4xl max-h-full overflow-y-auto rounded-[3rem] shadow-2xl relative">
-            <button onclick="closeModal()" class="fixed top-8 right-8 md:top-12 md:right-12 w-12 h-12 bg-white/80 backdrop-blur rounded-full flex items-center justify-center font-bold shadow-xl z-[110]">✕</button>
-            <div id="modal-content" class="p-8 md:p-20 prose max-w-none"></div>
+    <div id="modal" class="fixed inset-0 z-[100] items-center justify-center p-4 md:p-10 bg-black/40 backdrop-blur-sm">
+        <div class="bg-white w-full max-w-4xl max-h-full overflow-y-auto rounded-[2.5rem] shadow-2xl relative">
+            <button onclick="closeModal()" class="absolute top-8 right-8 w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center font-bold hover:bg-black hover:text-white transition z-10">✕</button>
+            <div id="modal-content" class="p-8 md:p-16 prose max-w-none"></div>
         </div>
     </div>
 
@@ -106,7 +105,6 @@
         async function loadArchive() {
             const grid = document.getElementById('magazine-grid');
             try {
-                // 使用 GitHub API 抓取
                 const response = await fetch(`https://api.github.com/repos/${CONFIG.username}/${CONFIG.repo}/contents/posts?t=${Date.now()}`);
                 const files = await response.json();
                 const mdFiles = files.filter(f => f.name.toLowerCase().endsWith('.md')).reverse();
@@ -116,10 +114,45 @@
                     const res = await fetch(`${file.download_url}?t=${Date.now()}`);
                     const text = await res.text();
 
-                    const title = text.match(/title:\s*["']?(.*?)["']?(\r?\n)/)?.[1] || "Untitled Entry";
+                    const title = text.match(/title:\s*["']?(.*?)["']?(\r?\n)/)?.[1] || "Untitled Post";
                     const thumb = text.match(/thumbnail:\s*["']?(.*?)["']?(\r?\n)/)?.[1] || "https://images.unsplash.com/photo-1516131206008-dd041a9764fd?q=80&w=800";
-                    const category = text.match(/category:\s*["']?(.*?)["']?(\r?\n)/)?.[1] || "Insight";
+                    const category = text.match(/category:\s*["']?(.*?)["']?(\r?\n)/)?.[1] || "Insights";
                     const content = text.replace(/---[\s\S]*?---/, '');
 
                     const card = `
-                        <article class="group cursor-pointer" onclick="openModal(\`${encodeURIComponent(content)}\`, '${title.replace(/'/g,
+                        <article class="group cursor-pointer" onclick="openModal('${file.name.replace(/'/g, "\\'")}', \`${encodeURIComponent(content)}\`, '${title}', '${thumb}')">
+                            <div class="relative aspect-[4/5] rounded-[2rem] overflow-hidden bg-gray-100 hover-lift mb-8 glass-card">
+                                <img src="${thumb}" class="img-grayscale w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105">
+                                <div class="absolute inset-0 bg-gradient-to-t from-gray-900/40 to-transparent"></div>
+                                <div class="absolute top-6 left-6"><span class="px-3 py-1.5 bg-white text-[9px] font-black uppercase rounded-full">${category}</span></div>
+                            </div>
+                            <h3 class="serif text-3xl italic font-bold leading-tight group-hover:text-indigo-600 transition-colors">${title}</h3>
+                        </article>
+                    `;
+                    grid.innerHTML += card;
+                }
+            } catch (err) { console.error(err); }
+        }
+
+        function openModal(name, encodedContent, title, thumb) {
+            const content = decodeURIComponent(encodedContent);
+            const modal = document.getElementById('modal');
+            const container = document.getElementById('modal-content');
+            container.innerHTML = `
+                <img src="${thumb}" class="w-full h-64 object-cover rounded-[1.5rem] mb-10 shadow-lg">
+                <div class="markdown-body text-lg text-gray-700 leading-relaxed">${marked.parse(content)}</div>
+            `;
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('modal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        document.getElementById('modal').onclick = function(e) { if (e.target === this) closeModal(); };
+        loadArchive();
+    </script>
+</body>
+</html>
